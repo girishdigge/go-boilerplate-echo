@@ -30,7 +30,7 @@ go-boilerplate/
 
 ### Prerequisites
 
-- Go 1.25 or higher
+- Go 1.26 or higher
 - Node.js 26+ and Bun
 - PostgreSQL 16+
 - Redis 8+
