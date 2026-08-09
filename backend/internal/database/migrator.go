@@ -34,7 +34,7 @@ func Migrate(ctx context.Context, logger *zerolog.Logger, cfg *config.Config) er
 
 	conn, err := pgx.Connect(ctx, dsn)
 	if err != nil {
-		return err
+		return fmt.Errorf("connecting to database for migration: %w", err)
 	}
 	defer conn.Close(ctx)
 
@@ -51,10 +51,10 @@ func Migrate(ctx context.Context, logger *zerolog.Logger, cfg *config.Config) er
 	}
 	from, err := m.GetCurrentVersion(ctx)
 	if err != nil {
-		return fmt.Errorf("retreiving current database migration version")
+		return fmt.Errorf("retrieving current database migration version")
 	}
 	if err := m.Migrate(ctx); err != nil {
-		return err
+		return fmt.Errorf("running database migrations: %w", err)
 	}
 	if from == int32(len(m.Migrations)) {
 		logger.Info().Msgf("database schema up to date, version %d", len(m.Migrations))
