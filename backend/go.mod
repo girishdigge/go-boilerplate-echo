@@ -1,6 +1,6 @@
 module github.com/girishdigge/go-boilerplate-echo
 
-go 1.26.4
+go 1.27.2
 
 require (
 	github.com/go-playground/validator/v10 v10.30.3
