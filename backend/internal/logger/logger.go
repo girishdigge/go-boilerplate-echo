@@ -183,7 +183,7 @@ func NewPgxLogger(level zerolog.Level) zerolog.Logger {
 			}
 		},
 	}
-	return zerolog.New(writer).Level(level).With().Timestamp().Logger()
+	return zerolog.New(writer).Level(level).With().Timestamp().Str("component", "database").Logger()
 }
 
 // GetPgxTraceLogLevel converts zerolog level to pgx tracelog level

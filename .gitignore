@@ -58,3 +58,6 @@ tsconfig.tsbuildinfo
 .vscode
 
 go-boilerplate
+go-boilerplate-echo
+
+code-review.txt
