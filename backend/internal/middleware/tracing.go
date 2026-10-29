@@ -53,10 +53,8 @@ func (tm *TracingMiddleware) EnhanceTracing() echo.MiddlewareFunc {
 			}
 
 			//Add user context if available
-			if userID := c.Get("user_id"); userID != nil {
-				if userIDStr, ok := userID.(string); ok {
-					txn.AddAttribute("user.id", userIDStr)
-				}
+			if userID, err := echo.ContextGet[string](c, "user_id"); err == nil {
+				txn.AddAttribute("user.id", userID)
 			}
 
 			//Execute next handler

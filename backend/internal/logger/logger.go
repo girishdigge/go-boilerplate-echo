@@ -172,7 +172,7 @@ func NewPgxLogger(level zerolog.Level) zerolog.Logger {
 				}
 				return v
 			case []byte:
-				var obj interface{}
+				var obj any
 				if err := json.Unmarshal(v, &obj); err == nil {
 					preety, _ := json.MarshalIndent(obj, "", "  ")
 					return "\n" + string(preety)

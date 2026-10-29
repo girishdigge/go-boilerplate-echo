@@ -17,11 +17,14 @@ require (
 	github.com/newrelic/go-agent/v3/integrations/logcontext-v2/zerologWriter v1.0.5
 	github.com/newrelic/go-agent/v3/integrations/nrecho-v5 v1.0.0
 	github.com/newrelic/go-agent/v3/integrations/nrpgx5 v1.3.4
+	github.com/newrelic/go-agent/v3/integrations/nrpkgerrors v1.1.0
 	github.com/newrelic/go-agent/v3/integrations/nrredis-v9 v1.1.2
 	github.com/pkg/errors v0.9.1
 	github.com/redis/go-redis/v9 v9.23.0
 	github.com/resend/resend-go/v4 v4.9.0
 	github.com/rs/zerolog v1.35.1
+	golang.org/x/text v0.43.0
+	golang.org/x/time v0.15.0
 )
 
 require (
@@ -48,7 +51,6 @@ require (
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/newrelic/go-agent/v3/integrations/logcontext-v2/nrwriter v1.0.2 // indirect
-	github.com/newrelic/go-agent/v3/integrations/nrpkgerrors v1.1.0
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
@@ -57,8 +59,6 @@ require (
 	golang.org/x/net v0.60.0 // indirect
 	golang.org/x/sync v0.24.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
-	golang.org/x/text v0.43.0 // indirect
-	golang.org/x/time v0.15.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260526163538-3dc84a4a5aaa // indirect
 	google.golang.org/grpc v1.83.1 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
