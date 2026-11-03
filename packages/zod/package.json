@@ -1,0 +1,27 @@
+{
+  "name": "@boilerplate/zod",
+  "version": "1.0.0",
+  "description": "Shared Zod schemas and inferred types",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "clean": "tsc -b --clean"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "zod": "^4.6.7"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@boilerplate/emails",
+  "version": "1.0.0",
+  "description": "Package to manage emails",
+  "type": "module",
+  "scripts": {
+    "dev": "email dev --dir ./src/templates -p 3001",
+    "export": "email export --pretty --dir ./src/templates --outDir ../../apps/backend/templates/emails"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-email": "^6.11.6"
+  },
+  "devDependencies": {
+    "@react-email/ui": "^6.11.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0"
+  }
+}

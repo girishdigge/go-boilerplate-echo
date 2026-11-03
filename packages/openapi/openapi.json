@@ -1,0 +1,133 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Boilerplate REST API - Documentation",
+    "description": "Boilerplate REST API - Documentation"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/status": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Get health",
+        "description": "Get health status",
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "Health status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HealthCheck": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "response_time": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "response_time"
+        ]
+      },
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "healthy",
+              "unhealthy"
+            ]
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+          },
+          "environment": {
+            "type": "string"
+          },
+          "checks": {
+            "type": "object",
+            "properties": {
+              "database": {
+                "$ref": "#/components/schemas/HealthCheckOutput"
+              },
+              "redis": {
+                "$ref": "#/components/schemas/HealthCheckOutput"
+              }
+            },
+            "required": [
+              "database"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "status",
+          "timestamp",
+          "environment",
+          "checks"
+        ],
+        "additionalProperties": false
+      },
+      "HealthCheckOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "response_time": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "response_time"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "x-service-token": {
+        "type": "apiKey",
+        "name": "x-service-token",
+        "in": "header"
+      }
+    }
+  }
+}

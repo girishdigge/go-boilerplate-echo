@@ -1,0 +1,34 @@
+{
+  "name": "@boilerplate/openapi",
+  "version": "1.0.0",
+  "description": "OpenAPI documentation generated from Zod schemas",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "import": "./dist/contracts/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "gen": "tsx src/gen.ts",
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "clean": "tsc -b --clean"
+  },
+  "dependencies": {
+    "@boilerplate/zod": "workspace:*",
+    "zod": "^4.6.7",
+    "zod-openapi": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15"
+  }
+}
